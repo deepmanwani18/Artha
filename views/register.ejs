@@ -1,0 +1,122 @@
+<%- include('partials/header') %>
+
+
+<div class="container mt-5">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+      <p>Already Registered? <a href="/login">Login</a></p>
+    </div>
+      </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+  <h1>Register</h1>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/register" method="POST">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" name="fname" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" name="lname" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username" autocomplete="off"  required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="confirm_password">Re-Enter Password</label>
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <br>
+              <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+              <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+              <input type="radio" id="other" name="gender" value="other" required>
+                <label for="other">Other</label>
+            </div>
+            <div class="form-group">
+              <label for="hobbies">Hobbies</label>
+              <br>
+              <input type="checkbox" id="music" name="hobbies" value="music">
+                <label for="music">Music</label>
+              <input type="checkbox" id="sports" name="hobbies" value="sports">
+                <label for="sports">Sports</label>
+              <input type="checkbox" id="reading" name="hobbies" value="reading">
+                <label for="reading">Reading</label>
+              <input type="checkbox" id="writing" name="hobbies" value="writing">
+                <label for="writing">Writing</label>        
+              <input type="checkbox" id="dancing" name="hobbies" value="dancing">
+                <label for="dancing">Dancing</label>
+              <input type="checkbox" id="cooking" name="hobbies" value="cooking">
+                <label for="cooking">Cooking</label>  
+              <input type="checkbox" id="photography" name="hobbies" value="photography">
+                <label for="photography">Photography</label>                    
+            </div>
+            <button type="submit" class="btn btn-dark">Register</button>
+            
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+<script type="text/javascript">
+  var citiesByState = {
+  Rajasthan: ["Sikar", "Jaipur"],  
+  Odisha: ["Bhubaneswar","Puri","Cuttack"],
+  Maharashtra: ["Mumbai","Pune","Nagpur"],
+  Kerala: ["kochi","Kanpur"]
+  }
+  function makeSubmenu(value) {
+  if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+  else {
+  var citiesOptions = "";
+  for(cityId in citiesByState[value]) {
+  citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+  }
+  document.getElementById("citySelect").innerHTML = citiesOptions;
+  }
+  }
+  function displaySelected() { var country = document.getElementById("countrySelect").value;
+  var city = document.getElementById("citySelect").value;
+  alert(country+"\n"+city);
+  }
+  function resetSelection() {
+  document.getElementById("countrySelect").selectedIndex = 0;
+  document.getElementById("citySelect").selectedIndex = 0;
+  }
+  </script>
+  <%- include('partials/header') %>
