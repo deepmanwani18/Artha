@@ -43,30 +43,51 @@
             <div class="form-group">
               <label for="gender">Gender</label>
               <br>
-              <input type="radio" id="male" name="gender" value="male" required>
+              <input type="radio" id="male" name="gender" value="Male" required>
                 <label for="male">Male</label>
-              <input type="radio" id="female" name="gender" value="female" required>
+              <input type="radio" id="female" name="gender" value="Female" required>
                 <label for="female">Female</label>
-              <input type="radio" id="other" name="gender" value="other" required>
+              <input type="radio" id="other" name="gender" value="Other" required>
                 <label for="other">Other</label>
             </div>
             <div class="form-group">
               <label for="hobbies">Hobbies</label>
               <br>
-              <input type="checkbox" id="music" name="hobbies" value="music">
+              <input type="checkbox" id="music" name="hobbies" value="Music">
                 <label for="music">Music</label>
-              <input type="checkbox" id="sports" name="hobbies" value="sports">
+              <input type="checkbox" id="sports" name="hobbies" value="Sports">
                 <label for="sports">Sports</label>
-              <input type="checkbox" id="reading" name="hobbies" value="reading">
+              <input type="checkbox" id="reading" name="hobbies" value="Reading">
                 <label for="reading">Reading</label>
-              <input type="checkbox" id="writing" name="hobbies" value="writing">
+              <input type="checkbox" id="writing" name="hobbies" value="Writing">
                 <label for="writing">Writing</label>        
-              <input type="checkbox" id="dancing" name="hobbies" value="dancing">
+              <input type="checkbox" id="dancing" name="hobbies" value="Dancing">
                 <label for="dancing">Dancing</label>
-              <input type="checkbox" id="cooking" name="hobbies" value="cooking">
+              <input type="checkbox" id="cooking" name="hobbies" value="Cooking">
                 <label for="cooking">Cooking</label>  
-              <input type="checkbox" id="photography" name="hobbies" value="photography">
-                <label for="photography">Photography</label>                    
+              <input type="checkbox" id="photography" name="hobbies" value="Photography">
+                <label for="photography">Photography</label>
+             <input type="checkbox" id="painting" name="hobbies" value="Painting">
+                <label for="painting">Painting</label>                    
+            </div>
+            <div class="form-group">
+              <label for="city">Select City</label>
+              <br>
+              <body onload="resetSelection()">
+                <select name="state" id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+                <option  value="" disabled selected>Choose State</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Karnataka</option>
+                <option>Maharashtra</option>
+                <option>Rajasthan</option>
+
+                </select>
+                <select name="city" id="citySelect" size="1" >
+                <option name="city" value="" disabled selected>Choose City</option>
+                <option></option>
+                </select>
+                <!-- <button onclick="displaySelected()">show selected</button> -->
             </div>
             <button type="submit" class="btn btn-dark">Register</button>
             
@@ -95,10 +116,11 @@ confirm_password.onkeyup = validatePassword;
 </script>
 <script type="text/javascript">
   var citiesByState = {
-  Rajasthan: ["Sikar", "Jaipur"],  
-  Odisha: ["Bhubaneswar","Puri","Cuttack"],
-  Maharashtra: ["Mumbai","Pune","Nagpur"],
-  Kerala: ["kochi","Kanpur"]
+  Gujarat: ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar"],
+  Haryana: ["Faridabad","Panipat","Sirsa", "Sonipat", "Karnal", "Panchkula", "Rohtak"],
+  Karnataka: ["Bangalore","Dharwad","Mangaluru"],
+  Maharashtra: ["Mumbai", "Pune", "Nagpur", "Thane","Nashik", "Kalyan"],
+  Rajasthan: ["Jaipur", "Jodhpur", "Udaypur", "Sikar", "Hanumangarh"]
   }
   function makeSubmenu(value) {
   if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
